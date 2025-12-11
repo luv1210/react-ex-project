@@ -64,7 +64,7 @@ const StudentList = () => {
                 id="search-icon"
                 style={{ background: "transparent", border: "none" }}
               >
-                <FaSearch color="#1e3a8a" />
+                <FaSearch color="var(--accent-soft-start)" />
               </InputGroup.Text>
               <Form.Control
                 type="text"
@@ -87,7 +87,7 @@ const StudentList = () => {
       </Card>
 
       {/* Student List */}
-      <Row xs={1} sm={2} md={3} className="g-4">
+      <Row xs={1} sm={2} md={3} className="g-4 student-grid-row">
         {filteredStudents.length > 0 ? (
           filteredStudents.map((student, index) => (
             <Col
@@ -108,47 +108,56 @@ const StudentList = () => {
       {/* Custom CSS */}
       <style>{`
         .stylish-card {
-          background: linear-gradient(135deg, #f9fafb, #e5e7eb);
-          border-radius: 16px;
-          box-shadow: 0 8px 20px rgba(30, 58, 138, 0.1);
+          background: linear-gradient(180deg, var(--bg-start), var(--bg-end));
+          border-radius: 12px;
+          box-shadow: 0 8px 28px rgba(2,6,23,0.6);
+          border: 1px solid var(--card-border);
+          color: var(--text-main);
         }
         .search-box {
-          background: #fff;
+          background: rgba(255,255,255,0.03);
           border-radius: 12px;
           padding: 6px 12px;
           display: flex;
           align-items: center;
-          box-shadow: 0 2px 8px rgba(30, 58, 138, 0.1);
-          transition: all 0.3s ease;
-          border: 1.5px solid transparent;
+          box-shadow: none;
+          transition: all 0.18s ease;
+          border: 1px solid rgba(var(--shadow-accent),0.06);
+        }
+        .search-box input, .search-box .form-control {
+          background: transparent;
+          border: none;
+          outline: none;
+          color: #e6eef8;
         }
         .search-box:focus-within {
-          box-shadow: 0 0 0 3px rgba(20, 116, 110, 0.3);
-          border-color: #14b8a6;
+          box-shadow: 0 8px 20px rgba(var(--shadow-accent),0.06);
+          border-color: rgba(var(--shadow-accent),0.18);
         }
         .add-btn {
-          background: linear-gradient(135deg, #1e3a8a, #14b8a6);
-          border: none;
-          padding: 8px 16px;
-          border-radius: 12px;
-          font-weight: 600;
-          box-shadow: 0 5px 15px rgba(20, 58, 138, 0.6);
-          transition: all 0.3s ease;
-          color: white;
-          font-size: 1rem;
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
+          background: linear-gradient(135deg,var(--accent-start),var(--accent-end));
+          border:none;
+          padding:8px 14px;
+          border-radius:10px;
+          font-weight:600;
+          color:#fff;
+          display:inline-flex;
+          gap:8px;
+          align-items:center;
+          box-shadow: 0 6px 18px rgba(var(--shadow-accent),0.12);
         }
         .add-btn:hover {
-          transform: scale(1.05);
-          box-shadow: 0 10px 20px rgba(20, 58, 138, 0.8);
-          color: white;
+          transform: translateY(-2px);
+          box-shadow: 0 12px 28px rgba(var(--shadow-accent),0.18);
         }
-        @keyframes fadeInUp {
-          from { opacity: 0; transform: translateY(15px); }
-          to { opacity: 1; transform: translateY(0); }
+
+        .student-grid-row { gap: 1.5rem; }
+
+        @media (max-width: 768px) {
+          .add-btn { width: 100%; justify-content: center; }
         }
+
+        @keyframes fadeInUp { from{opacity:0; transform: translateY(12px);} to{opacity:1; transform: translateY(0);} }
       `}</style>
     </div>
   );

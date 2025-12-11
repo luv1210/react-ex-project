@@ -52,29 +52,31 @@ const StudentDetails = () => {
 
       <style>{`
         .stylish-card {
-          background: linear-gradient(145deg, #ffffff, #f3f4f6);
-          border-radius: 16px;
-          box-shadow: 0 8px 20px rgba(30, 58, 138, 0.3);
+          background: linear-gradient(180deg,var(--bg-start),var(--bg-end));
+          border-radius: 12px;
+          box-shadow: 0 10px 34px rgba(2,6,23,0.6);
+          border: 1px solid var(--card-border);
+          color: var(--text-main);
         }
         .text-gradient {
-          background: linear-gradient(90deg, #1e3a8a, #14b8a6);
+          background: linear-gradient(90deg,var(--accent-soft-start),var(--accent-soft-end));
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         }
         .back-btn {
-          background: linear-gradient(135deg, #1e3a8a, #14b8a6);
+          background: linear-gradient(135deg,var(--accent-start),var(--accent-end));
           border: none;
           padding: 8px 18px;
           border-radius: 12px;
           color: white;
           font-weight: 600;
-          box-shadow: 0 5px 15px rgba(20, 58, 138, 0.6);
-          transition: all 0.3s ease;
+          box-shadow: 0 6px 18px rgba(var(--shadow-accent),0.16);
+          transition: all 0.25s ease;
           display: inline-block;
         }
         .back-btn:hover {
-          background: linear-gradient(135deg, #143374, #0f746e);
-          box-shadow: 0 10px 20px rgba(15, 116, 110, 0.8);
+          background: linear-gradient(135deg,#2b2a97,#5b21b6);
+          box-shadow: 0 12px 28px rgba(var(--shadow-accent),0.22);
           transform: translateY(-2px);
           color: white;
           text-decoration: none;

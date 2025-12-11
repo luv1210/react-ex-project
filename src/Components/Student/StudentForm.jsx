@@ -253,28 +253,30 @@ const StudentForm = () => {
       {/* Custom CSS */}
       <style>{`
         .stylish-card {
-          background: linear-gradient(145deg, #ffffff, #f3f4f6);
-          border-radius: 16px;
-          box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+          background: linear-gradient(180deg, var(--bg-start), var(--bg-end));
+          border-radius: 12px;
+          box-shadow: 0 10px 34px rgba(2,6,23,0.6);
+          border: 1px solid var(--card-border);
+          color: var(--text-main);
         }
         .text-gradient {
-          background: linear-gradient(90deg, #1e3a8a, #14b8a6);
+          background: linear-gradient(90deg, var(--accent-soft-start), var(--accent-soft-end));
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         }
         .section-title {
           font-weight: 600;
-          color: #555;
-          border-left: 4px solid #1e3a8a;
+          color: var(--text-main);
+          border-left: 4px solid var(--accent-start);
           padding-left: 8px;
         }
         .save-btn {
-          background: linear-gradient(135deg, #1e3a8a, #14b8a6);
+          background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
           border: none;
           padding: 10px 20px;
           border-radius: 12px;
           font-weight: 500;
-          box-shadow: 0 5px 15px rgba(20, 58, 138, 0.6);
+          box-shadow: 0 6px 18px rgba(var(--shadow-accent), 0.12);
           transition: all 0.3s ease;
           display: flex;
           align-items: center;
@@ -283,29 +285,29 @@ const StudentForm = () => {
           color: white;
         }
         .save-btn:hover {
-          background: linear-gradient(135deg, #143374, #0f746e);
-          box-shadow: 0 10px 20px rgba(15, 116, 110, 0.8);
+          background: linear-gradient(135deg, #3b25c9, #d6115d);
+          box-shadow: 0 12px 28px rgba(var(--shadow-accent), 0.22);
           transform: translateY(-2px);
         }
         .student-list-btn {
           font-weight: 600;
           border-radius: 12px;
           padding: 6px 14px;
-          box-shadow: 0 3px 10px rgba(30, 58, 138, 0.4);
+          box-shadow: 0 3px 10px rgba(var(--shadow-accent), 0.12);
           transition: all 0.3s ease;
           display: inline-flex;
           align-items: center;
           gap: 6px;
-          color: #1e3a8a;
-          border: 1.5px solid #1e3a8a;
+          color: var(--accent-start);
+          border: 1.5px solid var(--accent-start);
           background: transparent;
         }
         .student-list-btn:hover {
-          background: linear-gradient(135deg, #1e3a8a, #14b8a6);
+          background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
           color: white;
-          box-shadow: 0 5px 15px rgba(20, 58, 138, 0.6);
+          box-shadow: 0 6px 18px rgba(var(--shadow-accent), 0.18);
           transform: translateY(-2px);
-          border-color: #143374;
+          border-color: var(--accent-start);
         }
       `}</style>
     </Container>

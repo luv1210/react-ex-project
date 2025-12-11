@@ -6,10 +6,10 @@ import { FaEye, FaEdit, FaTrash } from "react-icons/fa";
 const StudentCard = ({ student, onDelete }) => {
   const initials = student.name
     ? student.name
-        .split(" ")
-        .map((n) => n[0])
-        .join("")
-        .toUpperCase()
+      .split(" ")
+      .map((n) => n[0])
+      .join("")
+      .toUpperCase()
     : "?";
 
   return (
@@ -19,37 +19,13 @@ const StudentCard = ({ student, onDelete }) => {
         maxWidth: "350px",
         height: "auto",
         width: "100%",
-        backdropFilter: "blur(8px)",
-        background: "rgba(255, 255, 255, 0.85)",
         cursor: "pointer",
         margin: "auto",
         transition: "transform 0.3s ease, box-shadow 0.3s ease",
       }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.transform = "translateY(-8px)";
-        e.currentTarget.style.boxShadow = "0 12px 30px rgba(30, 58, 138, 0.3)";
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.transform = "translateY(0)";
-        e.currentTarget.style.boxShadow = "0 6px 20px rgba(0,0,0,0.15)";
-      }}
     >
       {/* Gradient Header */}
-      <div
-        style={{
-          background: "linear-gradient(135deg, #1e3a8a, #14b8a6)",
-          color: "#fff",
-          padding: "0.8rem 1rem",
-          fontSize: "1.5rem",
-          textAlign: "center",
-          fontWeight: "bold",
-          borderTopLeftRadius: "1rem",
-          borderTopRightRadius: "1rem",
-          userSelect: "none",
-        }}
-      >
-        {initials}
-      </div>
+      <div className="card-header-initials">{initials}</div>
 
       <Card.Body
         className="d-flex flex-column justify-content-between"
@@ -65,7 +41,7 @@ const StudentCard = ({ student, onDelete }) => {
         <div
           style={{
             fontSize: "0.8rem",
-            color: "#444",
+            color: "var(--text-muted)",
             flexGrow: 1,
             lineHeight: 1.3,
           }}
@@ -109,24 +85,7 @@ const StudentCard = ({ student, onDelete }) => {
             to={`/students/edit/${student.id}`}
             variant="warning"
             size="sm"
-            className="rounded-3 d-flex align-items-center gap-2 px-3"
-            style={{
-              background: "#fbbf24",
-              border: "none",
-              color: "#1e3a8a",
-              boxShadow: "0 4px 10px rgba(251, 191, 36, 0.5)",
-              transition: "all 0.3s ease",
-            }}
-            onMouseEnter={e => {
-              e.currentTarget.style.background = "#f59e0b";
-              e.currentTarget.style.color = "#fff";
-              e.currentTarget.style.boxShadow = "0 6px 15px rgba(245, 158, 11, 0.8)";
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.background = "#fbbf24";
-              e.currentTarget.style.color = "#1e3a8a";
-              e.currentTarget.style.boxShadow = "0 4px 10px rgba(251, 191, 36, 0.5)";
-            }}
+            className="rounded-3 d-flex align-items-center gap-2 px-3 btn-edit"
           >
             <FaEdit /> Edit
           </Button>
@@ -152,32 +111,66 @@ const StudentCard = ({ student, onDelete }) => {
         }
         .student-card {
           animation: fadeIn 0.5s ease;
-          box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+          box-shadow: 0 10px 34px rgba(2,6,23,0.6);
+          border: 1px solid var(--card-border);
+          background: linear-gradient(180deg,var(--bg-start),var(--bg-end));
+          color: var(--text-main);
+          border-radius: 12px;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .student-card:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 18px 48px rgba(59,53,161,0.18);
+        }
+        .card-header-initials {
+          background: linear-gradient(135deg,var(--accent-start),var(--accent-end));
+          color: #fff;
+          padding: 0.75rem 1rem;
+          font-size: 1.25rem;
+          text-align: center;
+          font-weight: 700;
+          border-top-left-radius: 0.75rem;
+          border-top-right-radius: 0.75rem;
+          user-select: none;
         }
         .text-gradient {
-          background: linear-gradient(90deg, #1e3a8a, #14b8a6);
+          background: linear-gradient(90deg,var(--accent-soft-start),var(--accent-soft-end));
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         }
+        .student-card .card-body { padding: 1rem 1.25rem; }
 
         /* Custom Button Variant for Navy-Teal */
         .btn-navy-teal {
-          background: linear-gradient(135deg, #1e3a8a, #14b8a6);
+          background: linear-gradient(135deg,var(--accent-start),var(--accent-end));
           border: none;
           color: white;
           font-weight: 600;
-          box-shadow: 0 5px 15px rgba(20, 58, 138, 0.6);
-          transition: all 0.3s ease;
-          display: flex;
+          box-shadow: 0 6px 18px rgba(var(--shadow-accent),0.12);
+          transition: all 0.25s ease;
+          display: inline-flex;
           align-items: center;
           justify-content: center;
           gap: 6px;
         }
         .btn-navy-teal:hover, .btn-navy-teal:focus {
-          background: linear-gradient(135deg, #143374, #0f746e);
-          box-shadow: 0 10px 20px rgba(15, 116, 110, 0.8);
-          transform: translateY(-2px);
+          transform: translateY(-3px);
+          box-shadow: 0 12px 28px rgba(var(--shadow-accent),0.22);
           color: white;
+        }
+
+        /* Edit button style */
+        .btn-edit {
+          background: #fbbf24 !important;
+          border: none !important;
+          color: #1e3a8a !important;
+          box-shadow: 0 6px 16px rgba(251,191,36,0.16) !important;
+          transition: all 0.22s ease !important;
+        }
+        .btn-edit:hover {
+          background: #f59e0b !important;
+          color: #fff !important;
+          transform: translateY(-2px) !important;
         }
       `}</style>
     </Card>

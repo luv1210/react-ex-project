@@ -1,0 +1,41 @@
+/* Dark theme variables for student components */
+:root {
+    --bg-start: #071028;
+    --bg-end: #0b1220;
+
+    --accent-start: #4f46e5;
+    /* indigo */
+    --accent-end: #fb7185;
+    /* rose */
+
+    --accent-soft-start: #fce7f3;
+    /* light pink */
+    --accent-soft-end: #e879f9;
+    /* pale magenta */
+
+    --accent-pastel-start: #f472b6;
+    --accent-pastel-end: #d946ef;
+
+    --shadow-accent: 79, 70, 229;
+    /* rgb for shadows (indigo) */
+
+    --text-main: #e6eef8;
+    --text-muted: rgba(230, 238, 248, 0.68);
+
+    --card-border: rgba(255, 255, 255, 0.03);
+}
+
+/* Helper classes (optional) */
+.theme-dark-card {
+    background: linear-gradient(180deg, var(--bg-start), var(--bg-end));
+    color: var(--text-main);
+    border: 1px solid var(--card-border);
+}
+
+.accent-gradient {
+    background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
+}
+
+.accent-soft-gradient {
+    background: linear-gradient(90deg, var(--accent-soft-start), var(--accent-soft-end));
+}
